@@ -8,7 +8,7 @@
     
     <div class="flex  justify-center">
         <div>
-        <div class="mb-12">
+        <div id="top" class="mb-12">
             <a class="px-2 text-sm font-semibold py-1 mb-8 bg-blue-800 rounded-lg text-white hover:bg-blue-700" href="{% url 'book_list' %}">Book Lists</a>
         </div>
         
@@ -24,14 +24,18 @@
                 
         
                 <!-- Div yang ditampilkan/dihilangkan -->
-                <div x-show="showIndonesian" class="text-lg italic mt-2">
+                <div x-show="showIndonesian" class="text-lg italic">
                     {{ page.indonesian }}
                 </div>  
 
 
             </div>
-
             {% endfor %}
+
+            <div class="mt-6">
+                <a class="px-2 py-1 border rounded-sm border-blue-400 " href="#top">Kembali ke Atas</a>
+
+            </div>
         </div>
 
     </div>
