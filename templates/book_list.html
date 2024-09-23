@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+
+<div class="flex justify-center mt-8">
+
+    <div>
+
+        <div class="mb-8">
+            <a class="bg-blue-700 px-2 py-1 rounded-lg text-white  hover:bg-blue-600" href="/admin">Admin</a>
+        </div>
+        <div class="border border-slate-500 border-2 w-[600px] shadow-lg">
+            <div class="bg-blue-100 ">
+                <h1 class="text-center text-2xl py-2" >Daftar Buku</h1>
+
+            </div>
+    
+            
+            <div class="p-4">
+                {% for book in books %}
+                    <div class="mb-4 text-xl hover:text-blue-700">
+                        <a href="{% url 'book_detail' book.id %}"><span>{{forloop.counter }}</span>. {{ book.title }}</a>
+                    </div>
+                
+                {% endfor %}
+    
+            </div>
+        
+        
+          
+
+    </div>
+  
+    
+   
+
+
+    </div>
+    
+   
+
+
+{% endblock content %}
+
+

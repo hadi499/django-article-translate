@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+
+<div class="w-3/4 mx-auto mt-8">
+    
+    
+    <div class="flex  justify-center">
+        <div>
+        <div class="mb-12">
+            <a class="px-2 text-sm font-semibold py-1 mb-8 bg-blue-800 rounded-lg text-white hover:bg-blue-700" href="{% url 'book_list' %}">Book Lists</a>
+        </div>
+        
+        <div class="w-[1000px] border border-2 p-4 border-blue-400 bg-gray-50">
+            <h1 class="text-center text-2xl font-semibold mb-8"> {{ book.title }}</h1>
+            {% for page in pages %}
+            <div class="mb-3" x-data="{ showIndonesian: false }">
+                {% if page.image %}
+                <img src="{{ page.image.url }}" alt="{{ page.title }}" >
+    
+                {% endif %}
+                <div class="text-xl"> {{ page.english }} <span class="ml-4 hover:cursor-pointer text-sm text-blue-600" @click="showIndonesian = !showIndonesian">terjemahkan</span></div>
+                
+        
+                <!-- Div yang ditampilkan/dihilangkan -->
+                <div x-show="showIndonesian" class="text-lg italic mt-2">
+                    {{ page.indonesian }}
+                </div>  
+
+
+            </div>
+
+            {% endfor %}
+        </div>
+
+    </div>
+
+                
+         
+
+   
+      
+      
+
+  
+
+  </div>
+
+
+</div>
+
+
+
+{% endblock content %}
+
+
+
+
+
+
+<!-- templates/book_detail.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Detail Buku</title>
+</head>
+<body>
+    
+</body>
+</html>
