@@ -14,6 +14,25 @@
   
   {% block content %}
   {% endblock content %}
+
+ 
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      // Pilih semua paragraf yang dihasilkan oleh CKEditor
+      const ckeditorContent = document.querySelectorAll('.ckeditor-content p');
+  
+      // Tambahkan kelas Tailwind ke setiap paragraf
+      ckeditorContent.forEach((p) => {
+          p.classList.add('inline-block', 'mb-0');
+      });
+  });
+  
+
+
+  </script>
+
+
   
 </body>
 </html>

@@ -12,7 +12,7 @@
             <a class="px-2 text-sm font-semibold py-1 mb-8 bg-blue-800 rounded-lg text-white hover:bg-blue-700" href="{% url 'book_list' %}">Book Lists</a>
         </div>
         
-        <div class="w-[1000px] border border-2 p-4 border-blue-400 bg-gray-50 mb-8">
+        <div class="border border-2 p-4 border-blue-400 bg-amber-50 mb-8 max-w-6xl">
             <h1 class="text-center text-2xl font-semibold mb-8"> {{ book.title }}</h1>
             {% for page in pages %}
             <div class="mb-3" x-data="{ showIndonesian: false }">
@@ -20,13 +20,15 @@
                 <img src="{{ page.image.url }}" alt="{{ page.title }}" >
     
                 {% endif %}
-                <div class="text-xl"> {{ page.english }} <span class="ml-4 hover:cursor-pointer text-sm text-blue-600" @click="showIndonesian = !showIndonesian">terjemahkan</span></div>
+                <div class="text-xl leading-relaxed ckeditor-content"> {{ page.english|safe }} <p class="hover:cursor-pointer text-sm text-blue-600 mb-0 " @click="showIndonesian = !showIndonesian">terjemahkan</p> </div>
+               
                 
         
-                <!-- Div yang ditampilkan/dihilangkan -->
-                <div x-show="showIndonesian" class="text-lg italic">
-                    {{ page.indonesian }}
+                <div x-show="showIndonesian" class="text-lg italic leading-tight">
+                    {{ page.indonesian|safe }}
                 </div>  
+
+                
 
 
             </div>
