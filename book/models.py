@@ -15,4 +15,6 @@ class Page(models.Model):
   indonesian = RichTextField(blank=True, null=True)
 
   def __str__(self):
-    return self.english
+    english_excerpt = self.english[:40] + ('...' if len(self.english) > 20 else '')
+    return f'{self.title.title} - {english_excerpt}'
+   
